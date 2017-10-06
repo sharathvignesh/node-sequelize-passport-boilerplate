@@ -1,0 +1,27 @@
+{
+  "name": "simpleapp",
+  "version": "1.0.0",
+  "description": "Simple app with nodeJS server, mochaJS and istanbul",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel-node node_modules/.bin/babel-istanbul cover --no-default-excludes -x '**/node_modules/**' _mocha -- -R spec ./test/test.js",
+    "lint": "jshint app/server.js"
+  },
+  "author": "sharath vignesh",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-istanbul": "^0.12.2",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "express": "^4.16.1",
+    "mocha": "^4.0.1",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.5"
+  }
+}
