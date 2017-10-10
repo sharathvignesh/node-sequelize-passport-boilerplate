@@ -1,0 +1,25 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "fx31275",
+    "database": "simpleapp",
+    "host": "localhost",
+    "port": "5432",
+    "dialect": "postgres",
+    "maxIdleTime": 30
+  },
+  "test": {
+    "username": "postgres",
+    "password": "fx31275",
+    "database": "simpleapp",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "fx31275",
+    "database": "simpleapp",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
