@@ -5,6 +5,7 @@ const passport = require('passport');
 const Strategy = require('passport-http-bearer').Strategy;
 const db = require('../db');
 const controller = require('../server/controllers').token;
+const authController = require('../server/controllers').auth;
 const username = 'username';
 const password = 'password';
 
@@ -19,6 +20,16 @@ passport.use('bearer', new Strategy(
     });
   }));
 
+  passport.use('bearer', new Strategy(
+    function(token, cb) {
+      console.log('coming here');
+      authController.findByToken(token, function(err, user) {
+        if (err) { return cb(err); }
+        if (!user) { return cb(null, false); }
+        console.log(cb(null, user));
+        return cb(null, user);
+      });
+    }));
 
 app.use(bodyParser());
 
@@ -38,6 +49,8 @@ app.post('/', (req, res)=> {
 });
 
 app.post('/save', controller.create);
+
+app.get('/get_token', controller.list);
 
 app.post('/signin', (req, res)=> {
   let _username = req.body.username;
