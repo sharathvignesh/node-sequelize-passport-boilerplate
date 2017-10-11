@@ -3,8 +3,8 @@ let app = express();
 let bodyParser = require('body-parser');
 var passport = require('passport');
 var Strategy = require('passport-http-bearer').Strategy;
-var db = require('../db')
-const signupController = require('../server/controllers').signup;
+var db = require('../db');
+const controller = require('../server/controllers').token;
 
 passport.use('bearer', new Strategy(
   function(token, cb) {
@@ -43,7 +43,9 @@ app.post('/', (req, res)=> {
   res.send(req.body);
 });
 
-app.post('/signup', signupController.create);
+// app.post('/signup', controller.create);
+app.post('/save', controller.create);
+
 
 app.post('/signin', (req, res)=> {
   let _username = req.body.username;
