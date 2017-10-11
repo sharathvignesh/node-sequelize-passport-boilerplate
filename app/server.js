@@ -37,9 +37,7 @@ app.post('/', (req, res)=> {
   res.send(req.body);
 });
 
-// app.post('/signup', controller.create);
 app.post('/save', controller.create);
-
 
 app.post('/signin', (req, res)=> {
   let _username = req.body.username;
@@ -51,7 +49,6 @@ app.post('/signin', (req, res)=> {
     res.sendStatus(401);
   }
 });
-
 
 app.listen(3000, ()=> {
     console.log('App listening on port 3000!');
