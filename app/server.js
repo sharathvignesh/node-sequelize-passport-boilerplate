@@ -1,14 +1,16 @@
-let express = require("express");
-let app = express();
-let bodyParser = require('body-parser');
-var passport = require('passport');
-var Strategy = require('passport-http-bearer').Strategy;
-var db = require('../db');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+const passport = require('passport');
+const Strategy = require('passport-http-bearer').Strategy;
+const db = require('../db');
 const controller = require('../server/controllers').token;
+const username = 'username';
+const password = 'password';
 
 passport.use('bearer', new Strategy(
   function(token, cb) {
-    console.log("coming here");
+    console.log('coming here');
     db.users.findByToken(token, function(err, user) {
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }
@@ -17,16 +19,8 @@ passport.use('bearer', new Strategy(
     });
   }));
 
-const username = "username";
-const password = "password";
+
 app.use(bodyParser());
-
-
-// app.get('/', (req, res)=> {
-//       passport.authenticate('bearer', { session: false }),
-//       res.contentType("text/plain");
-//       res.send("Hello World");
-// });
 
 app.get('/',
   passport.authenticate('bearer', { session: false }),
@@ -35,7 +29,7 @@ app.get('/',
   });
 
 app.get('/querystring', (req, res)=> {
-    res.contentType("text/plain");
+    res.contentType('text/plain');
     res.send(req.query.id);
 });
 
