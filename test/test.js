@@ -18,7 +18,7 @@ describe('API', function() {
 
       it('/api get_token', function(done) {
         chai.request(server)
-          .get('/api/get_token')
+          .get('/api/token')
           .set('Authorization', 'Bearer sharath123')
           .end(function(err, res){
             res.should.have.status(200);
@@ -30,7 +30,8 @@ describe('API', function() {
       it('/API querystring', function(done) {
         let queryStr = "LoremIpsum"
         chai.request(server)
-          .get('/api/querystring?id='+queryStr)
+          .get('/api/q?id='+queryStr)
+          .set('Authorization', 'Bearer sharath123')
           .end(function(err, res){
             res.should.have.status(200);
             res.text.should.be.eql(queryStr);
@@ -40,9 +41,9 @@ describe('API', function() {
 
       it('/POST save_token', function(done) {
         chai.request(server)
-          .post('/api/save_token')
+          .post('/api/token')
           .set('content-type', 'application/json')
-          .send({token_id: 'token123'})
+          .send({token_id: 'qWadbj12312mnjahsdka8793cHadshjasdAiepqwK'})
           .end(function(err, res){
             res.should.have.status(201);
             done();
@@ -53,6 +54,7 @@ describe('API', function() {
         chai.request(server)
           .post('/api/signin')
           .set('content-type', 'application/json')
+          .set('Authorization', 'Bearer sharath123')
           .send({username: 'username', password: 'password'})
           .end(function(err, res){
             res.should.have.status(200);

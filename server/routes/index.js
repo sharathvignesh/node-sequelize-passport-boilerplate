@@ -20,20 +20,24 @@ passport.use('bearer', new Strategy(
 module.exports = (app) => {
   app.get('/api', (req, res) => res.status(200).send('Welcome to the Todos API!'));
 
-  app.get('/api/get_token',
+  app.get('/api/token',
     passport.authenticate('bearer', { session: false }),
     (req, res)=> {
       res.status(200).send("Authorized")
     });
 
-  app.post('/api/save_token', controller.create);
+  app.post('/api/token', controller.create);
 
-  app.get('/api/querystring', (req, res)=> {
+  app.get('/api/q',
+  passport.authenticate('bearer', { session: false }),
+  (req, res)=> {
       res.contentType('text/plain');
       res.status(200).send(req.query.id);
   });
 
-  app.post('/api/signin', (req, res)=> {
+  app.post('/api/signin',
+  passport.authenticate('bearer', { session: false }),
+  (req, res)=> {
     let _username = req.body.username;
     let _password = req.body.password;
     if(_username === username && _password === password){

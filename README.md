@@ -63,7 +63,7 @@ Unauthorized
 
 #### Save token
 ```
-POST /api/save_token
+POST /api/token
 ```
 ##### parameters
 1. token_id: string
@@ -87,7 +87,7 @@ POST /api/save_token
 
 #### Get token
 ```
-GET /api/get_token
+GET /api/token
 ```
 
 ##### response (200)
@@ -97,7 +97,7 @@ Authorized
 
 ##### Querystring
 ```
-GET /api/querystring
+GET /api/q
 
 ```
 ##### parameters
@@ -120,7 +120,7 @@ $  npm run test
 
 You should see something like this if the tests pass
 
-![TerminalOp](https://github.com/sharathvignesh/simpleApp/blob/master/test/Testoutput.png)
+![TerminalOp](https://tppr.me/6M9Tk)
 
 - - -
 
