@@ -25,22 +25,20 @@ Sample
 
 Install the dependencies and start the server.
 
-```
+```sh
 $ cd simpleApp
 $ npm install
 $ npm start:dev
 ```
 - - -
 
-### API endpoints
+### List of APIs
 
 * Signin
 * Save token
 * Get token
 * Querystring
 
-
-## Posted
 
 ### API endpoints
 
@@ -116,7 +114,7 @@ id
 This app uses MochaJS and IstanbulJS for Testing and coverage respectively. To test the API end points,
 
 
-```
+```sh
 $  npm run test
 ```
 
@@ -126,4 +124,4 @@ You should see something like this if the tests pass
 
 - - -
 
-Happy Hacking ! 
+Happy Hacking !
