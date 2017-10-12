@@ -120,7 +120,7 @@ $  npm run test
 
 You should see something like this if the tests pass
 
-![TerminalOp](https://tppr.me/6M9Tk)
+![TerminalOp](https://github.com/sharathvignesh/simpleApp/blob/master/test/Testoutput.png)
 
 - - -
 
