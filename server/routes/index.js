@@ -18,21 +18,19 @@ passport.use('bearer', new Strategy(
   }));
 
 module.exports = (app) => {
-  app.get('/api', (req, res) => res.status(200).send({
-    message: 'Welcome to the Todos API!',
-  }));
+  app.get('/api', (req, res) => res.status(200).send('Welcome to the Todos API!'));
 
   app.get('/api/get_token',
     passport.authenticate('bearer', { session: false }),
     (req, res)=> {
-      res.send("Authorized")
+      res.status(200).send("Authorized")
     });
 
   app.post('/api/save_token', controller.create);
 
   app.get('/api/querystring', (req, res)=> {
       res.contentType('text/plain');
-      res.send(req.query.id);
+      res.status(200).send(req.query.id);
   });
 
   app.post('/api/signin', (req, res)=> {
