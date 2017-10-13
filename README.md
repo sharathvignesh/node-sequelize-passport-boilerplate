@@ -1,4 +1,7 @@
-# simpleApp
+# node-sequelize-passport-boilerplate
+
+Quick boilerplate code to get started with nodeJS, Sequelize, MochaJS, IstanbulJS, passport-bearer.
+
 
 > Note: This app uses postgres database with Sequelize ORM. So install, start postgres and edit the config file as below
 
